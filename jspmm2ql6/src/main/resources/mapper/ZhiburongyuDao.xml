@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.ZhiburongyuDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.ZhiburongyuEntity" id="zhiburongyuMap">
+        <result property="zhanghao" column="zhanghao"/>
+        <result property="dangzhibu" column="dangzhibu"/>
+        <result property="chengguo" column="chengguo"/>
+        <result property="zhengshu" column="zhengshu"/>
+        <result property="wenjian" column="wenjian"/>
+        <result property="rongyu" column="rongyu"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.ZhiburongyuVO" >
+		SELECT * FROM zhiburongyu  zhiburongyu         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.ZhiburongyuVO" >
+		SELECT  zhiburongyu.* FROM zhiburongyu  zhiburongyu 	
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.ZhiburongyuView" >
+
+		SELECT  zhiburongyu.* FROM zhiburongyu  zhiburongyu 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.ZhiburongyuView" >
+		SELECT * FROM zhiburongyu  zhiburongyu <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+</mapper>
